@@ -1,5 +1,6 @@
 
 <?php 
+//echo 切換分之
 $link=mysqli_connect("localhost","root","mysql") or die("連接失敗");
 // echo 'in';
 mysqli_select_db($link,"message");
