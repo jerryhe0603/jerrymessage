@@ -16,8 +16,6 @@ mysqli_query($link,$sql_delete);
 
 ?>
 
-
-
 <script type="text/javascript" >
 function delete_message(master_id){
       
