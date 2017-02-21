@@ -1,5 +1,5 @@
 <?php
-include "main.php";
+require "main.php";
 
 //撈sql
 $link=mysqli_connect("localhost","root","mysql") or die("連接失敗");
