@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <script type="text/javascript" >
 
 function delete_message(master_id){
@@ -38,27 +38,46 @@ function edit_message(master_id,name,message){
 		
 		<table border="1" width="60%">
 			<tr>
-                <th>{$name}</th>
-                <th>{$details}</th>
-                <th>{$time}</th>
-                <th>{$edit}</th>
-                <th>{$deleted}</th>
-
-            </tr>
-            {foreach from=$message_arr item=item}
-            <tr>
-            	<td>{$item.1}</td>
-            	<td>{$item.2}</td>
-            	<td>{$item.3}</td>
-            	<td>
-            		<input type="button" value='編輯' onclick="edit_message('{$item.0}','{$item.1}','{$item.2}')">
-            	</td>
-            	<td>
-                    <input type="button" value='刪除' onclick="delete_message('{$item.0}')">
-                </td>
-            </tr>
+        <th>{$name}</th>
+        <th>{$details}</th>
+        <th>{$time}</th>
+        <th>{$edit}</th>
+        <th>{$deleted}</th>
+        <th>{$testclass}</th>
+      </tr>
+      {foreach from=$message_arr item=message}
+      <tr>
+      	<td>{$message.name}</td>
+      	<td>{$message.message}</td>
+      	<td>{$message.create_time}</td>
+      	<td>
+      		<input type="button" value='編輯' onclick="edit_message('{$message.id}','{$message.name}','{$message.message}')">
+      	</td>
+      	<td>
+              <input type="button" value='刪除' onclick="delete_message('{$message.id}')">
+        </td>
+        <td>{$message.name}</td>
+      </tr>
 			    
 			{/foreach}
+     
+      <tr>
+        <td>演藝專長</td>
+        <td>
+          {foreach from=$aSpecialty item="specialty" name="specialty" key=k}
+          <input type="checkbox" name="specialty[]" value={$k} >{$specialty}
+          {/foreach}
+        </td>
+      </tr>
+
+      <tr>
+        <td>演藝專長</td>
+        <!-- {html_checkboxes}使用 -->
+        <td>
+          {html_checkboxes name='contact_type_id' options=$aSpecialty
+        selected=$check_id }
+        </td>
+      </tr>
 		</table>
 	</form>
 </body>
